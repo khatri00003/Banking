@@ -17,6 +17,7 @@ public class filter {
 		driver.findElement(By.xpath("//input[@id='search-field']")).sendKeys("Rice");
 		List<WebElement> veggies=driver.findElements(By.xpath("//tr/td[1]"));
 		System.out.println(veggies);
+		driver.sleep(3000);
 		List<WebElement> filteredList=veggies.stream().filter(veggie->veggie.getText().contains("Rice")).collect(Collectors.toList());
 		System.out.println(filteredList);
 		Assert.assertEquals(veggies.size(), filteredList.size());
